@@ -53,6 +53,10 @@ OMDb (The Open Movie Database) API
 * No frameworks.
 
 ## Will you try to implement any stretch features?
+* [ ] User can add a date to the movie.
+* [ ] User can update the date.
+* [ ] User can delete the date.
+* [ ] User can view the movie on the calendar.
 * [ ] Use a linter (eslint)
 * [ ] Mobile first approach
 * [ ] SEO friendly tags
