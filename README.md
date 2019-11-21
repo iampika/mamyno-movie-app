@@ -72,12 +72,12 @@ OMDb (The Open Movie Database) API
 * [ ] Use a CI / CD pipeline
 
 ## What will be your process?
-* What project management tool will you use?
- * I will use Notion, to break down project in smaller, manageble pieces and track their progress. 
-* How often will you commit your code?
- * I will aim to commit code every day
+  * What project management tool will you use?
+I will use Notion, to break down project in smaller, manageble pieces and track their progress. 
+  * How often will you commit your code?
+I will aim to commit code every day
 * How will you test your web site?
-  * I will test the API with Postman.
-  * I will test the finished website on my computer.
+   * I will test the API with Postman.
+   * I will test the finished website on my computer.
 * How will you design the layout of your website? Will you use a wireframing tool? Will you draw it on paper?
- * I will use https://wireframe.cc/
+  * I will use https://wireframe.cc/
