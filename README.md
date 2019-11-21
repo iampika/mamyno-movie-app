@@ -9,10 +9,10 @@ I love to watch movies and I always forgot movies names which I want to watch. S
 ## How will users interact with your web site?
 An application where users can search for movies.
 * [ ] Users can search for movies.
-* [] Users can add movies to watch list.
-  * [] Use LocalStorage
-* [] Users can view the watch list.
-* [] Users can delete movies from the watch list.
+* [ ] Users can add movies to watch list.
+  * [ ] Use LocalStorage
+* [ ] Users can view the watch list.
+* [ ] Users can delete movies from the watch list.
 
 ## What 3rd Party API(s) will you integrate with?
 OMDb (The Open Movie Database) API
@@ -22,18 +22,18 @@ OMDb (The Open Movie Database) API
 HTML5, CSS3, Vanilla Js will be used for this project, no frameworks.
 
 ## Will you try to implement any stretch features?
-* [] Users can select the status for the movie:
+* [ ] Users can select the status for the movie:
   * Watching
   * Done
-* [] Users can select a platform where they will watch the movie:
+* [ ] Users can select a platform where they will watch the movie:
   * Netflix
   * Amazon
   * Hulu
   * Showtime
   * Theater
   * Apple TV
-* [] Users can add a platform where they want to watch the movie.
-* [] Users can give tags to the movies, so later they can filter through it
+* [ ] Users can add a platform where they want to watch the movie.
+* [ ] Users can give tags to the movies, so later they can filter through it
   * Anime
   * Comedy
   * Weird
@@ -46,20 +46,20 @@ HTML5, CSS3, Vanilla Js will be used for this project, no frameworks.
   * Sci-Fi
   * Marvel
   * Standup
-* [] Users can create the tags for the movies.
-* [] Use a linter (eslint)
-* [] Mobile first approach
-* [] SEO friendly tags
-* [] UI Animations
-* [] Use plain CSS with Flexbox
-* [] Settings persistence in the browser with Local Storage or IndexDB
-* [] Structure your javascript code in an MV* pattern (No 3rd party libraries)
-* [] Use a state management pattern in your JavaScript code (No 3rd party libraries)
-* [] Multiple pages with DOM manipulation (SPA) instead of multiple html files.
-* [] Document JavaScript with JSDoc
-* [] E2E testing
-* [] 100% lighthouse score
-* [] Use a CI / CD pipeline
+* [ ] Users can create the tags for the movies.
+* [ ] Use a linter (eslint)
+* [ ] Mobile first approach
+* [ ] SEO friendly tags
+* [ ] UI Animations
+* [ ] Use plain CSS with Flexbox
+* [ ] Settings persistence in the browser with Local Storage or IndexDB
+* [ ] Structure your javascript code in an MV* pattern (No 3rd party libraries)
+* [ ] Use a state management pattern in your JavaScript code (No 3rd party libraries)
+* [ ] Multiple pages with DOM manipulation (SPA) instead of multiple html files.
+* [ ] Document JavaScript with JSDoc
+* [ ] E2E testing
+* [ ] 100% lighthouse score
+* [ ] Use a CI / CD pipeline
 
 ## What will be your process?
 * What project management tool will you use?
