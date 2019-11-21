@@ -1,4 +1,5 @@
-# Mamyno
+# Project Name / Title
+Mamyno
 
 ## Project Description
 An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.
