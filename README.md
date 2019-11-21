@@ -7,21 +7,11 @@ An application where users can search for movies and add to their watch list. Af
 I love to watch movies and I always forgot movies names which I want to watch.
 
 ## How will users interact with your web site?
-An application where users can search for movies.
 * [ ] Users can search for movies.
 * [ ] Users can add movies to watch list.
-  * [ ] Use LocalStorage
+  * [ ] Using LocalStorage
 * [ ] Users can view the watch list.
 * [ ] Users can delete movies from the watch list.
-
-## What 3rd Party API(s) will you integrate with?
-OMDb (The Open Movie Database) API
-* Link to the API documentation here - https://www.omdbapi.com/
-
-## Tech Stack
-HTML5, CSS3, Vanilla Js will be used for this project, no frameworks.
-
-## Will you try to implement any stretch features?
 * [ ] Users can select the status for the movie:
   * Watching
   * Done
@@ -33,6 +23,8 @@ HTML5, CSS3, Vanilla Js will be used for this project, no frameworks.
   * Theater
   * Apple TV
 * [ ] Users can add a platform where they want to watch the movie.
+* [ ] Users can delete a platform.
+* [ ] Users can update a platform.
 * [ ] Users can give tags to the movies, so later they can filter through it
   * Anime
   * Comedy
@@ -47,6 +39,17 @@ HTML5, CSS3, Vanilla Js will be used for this project, no frameworks.
   * Marvel
   * Standup
 * [ ] Users can create the tags for the movies.
+* [ ] Users can delete the tags for the movies.
+* [ ] Users can update the tags for the movies.
+
+## What 3rd Party API(s) will you integrate with?
+OMDb (The Open Movie Database) API
+* Link to the API documentation here - https://www.omdbapi.com/
+
+## Tech Stack
+HTML5, CSS3, Vanilla Js will be used for this project, no frameworks.
+
+## Will you try to implement any stretch features?
 * [ ] Use a linter (eslint)
 * [ ] Mobile first approach
 * [ ] SEO friendly tags
