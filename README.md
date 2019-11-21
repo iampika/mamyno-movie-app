@@ -8,7 +8,7 @@ I love to watch movies and I always forgot movies names which I want to watch. S
 
 ## How will users interact with your web site?
 An application where users can search for movies.
-* [] Users can search for movies.
+* [ ] Users can search for movies.
 * [] Users can add movies to watch list.
   * [] Use LocalStorage
 * [] Users can view the watch list.
