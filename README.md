@@ -47,7 +47,10 @@ OMDb (The Open Movie Database) API
 * Link to the API documentation here - https://www.omdbapi.com/
 
 ## Tech Stack
-HTML5, CSS3, Vanilla Js will be used for this project, no frameworks.
+* HTML5
+* CSS3
+* Vanilla Js
+* No frameworks.
 
 ## Will you try to implement any stretch features?
 * [ ] Use a linter (eslint)
