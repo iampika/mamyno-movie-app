@@ -4,7 +4,7 @@
 An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.
 
 ## What is your motivation for creating this project?
-I love to watch movies and I always forgot movies names which I want to watch. So from this project, I can add movies to watch list.
+I love to watch movies and I always forgot movies names which I want to watch.
 
 ## How will users interact with your web site?
 An application where users can search for movies.
