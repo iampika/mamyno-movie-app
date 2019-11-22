@@ -1,0 +1,26 @@
+{
+  "name": "mamyno-movie-app",
+  "version": "1.0.0",
+  "description": "An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html -d docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakepintu/mamyno-movie-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakepintu/mamyno-movie-app/issues"
+  },
+  "homepage": "https://github.com/jakepintu/mamyno-movie-app#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.23.7"
+  }
+}
