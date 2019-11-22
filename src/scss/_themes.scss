@@ -1,0 +1,54 @@
+.themes {
+  display: none;
+
+  @include media('>large') {
+    display: flex;
+    justify-content: space-around;
+    width: 1124px;
+    margin: auto;
+    margin-top: 25vh;
+    align-items: center;
+  }
+}
+
+.theme-1,
+.theme-2,
+.theme-3,
+.theme-4,
+.theme-5,
+.theme-6 {
+  width: 130px;
+  height: 130px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.theme-1 {
+  background: color(themes, 1);
+  @include shadow
+}
+
+.theme-2 {
+  background: color(themes, 2);
+  @include shadow
+}
+
+.theme-3 {
+  background: color(themes, 3);
+  @include shadow
+}
+
+.theme-4 {
+  background: color(themes, 4);
+  @include shadow
+}
+
+.theme-5 {
+  background: color(themes, 5);
+  @include shadow
+}
+
+.theme-6 {
+  background: color(themes, 6);
+  @include shadow
+}

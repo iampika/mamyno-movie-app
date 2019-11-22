@@ -1,0 +1,23 @@
+.hero {
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 40px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+
+.hero-paragraph {
+  color: color(typography, 2);
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 32px;
+}
+
+.hero-inner {
+  button {
+    font-weight: 400;
+  }
+}
