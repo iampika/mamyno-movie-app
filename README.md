@@ -83,7 +83,7 @@ OMDb (The Open Movie Database) API
 ## What will be your process?
 
 - What project management tool will you use?
-  - I will use Notion, to break down project in smaller, manageble pieces and track their progress.
+  - I will use Github Projects, to break down project in smaller, manageble pieces and track their progress.
 - How often will you commit your code?
   - I will aim to commit code every day
 - How will you test your web site?
