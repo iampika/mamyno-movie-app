@@ -144,15 +144,22 @@
       };
 
       const rubberBandAnimation = () => {
+        console.log('rubberBand', rubberBand.classList.contains('paused'));
         if (rubberBand.classList.contains('paused')) {
           rubberBand.classList.remove('rubberBand');
+          toggleAnimation();
         } else {
           rubberBand.classList.add('rubberBand');
+          setTimeout(() => {
+            rubberBand.classList.remove('rubberBand');
+            toggleAnimation();
+          }, 1000);
         }
       };
 
       const fadeInUpAnimation = () => {
-        if (rubberBand.classList.contains('paused')) {
+        console.log('fadeInUp', rubberBand.classList.contains('paused'));
+        if (heroTitle.classList.contains('paused')) {
           heroTitle.classList.remove('fadeInUp');
           heroParagraph.classList.remove('fadeInUp');
           heroButton.classList.remove('fadeInUp');
@@ -162,6 +169,7 @@
           themeFour.classList.remove('fadeInUp');
           themeFive.classList.remove('fadeInUp');
           themeSix.classList.remove('fadeInUp');
+          toggleAnimation();
         } else {
           heroTitle.classList.add('fadeInUp');
           heroParagraph.classList.add('fadeInUp');
@@ -172,6 +180,17 @@
           themeFour.classList.add('fadeInUp');
           themeFive.classList.add('fadeInUp');
           themeSix.classList.add('fadeInUp');
+          setTimeout(() => {
+            heroTitle.classList.remove('fadeInUp');
+            heroParagraph.classList.remove('fadeInUp');
+            heroButton.classList.remove('fadeInUp');
+            themeOne.classList.remove('fadeInUp');
+            themeTwo.classList.remove('fadeInUp');
+            themeThree.classList.remove('fadeInUp');
+            themeFour.classList.remove('fadeInUp');
+            themeFive.classList.remove('fadeInUp');
+            themeSix.classList.remove('fadeInUp');
+          }, 1000);
         }
       };
 
