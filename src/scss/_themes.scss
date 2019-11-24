@@ -11,44 +11,39 @@
   }
 }
 
-.theme-1,
-.theme-2,
-.theme-3,
-.theme-4,
-.theme-5,
-.theme-6 {
+.theme-one,
+.theme-two,
+.theme-three,
+.theme-four,
+.theme-five,
+.theme-six {
   width: 130px;
   height: 130px;
   border-radius: 100px;
   cursor: pointer;
+  @include shadow;
 }
 
-.theme-1 {
+.theme-one {
   background: color(themes, 1);
-  @include shadow
 }
 
-.theme-2 {
+.theme-two {
   background: color(themes, 2);
-  @include shadow
 }
 
-.theme-3 {
+.theme-three {
   background: color(themes, 3);
-  @include shadow
 }
 
-.theme-4 {
+.theme-four {
   background: color(themes, 4);
-  @include shadow
 }
 
-.theme-5 {
+.theme-five {
   background: color(themes, 5);
-  @include shadow
 }
 
-.theme-6 {
+.theme-six {
   background: color(themes, 6);
-  @include shadow
 }
