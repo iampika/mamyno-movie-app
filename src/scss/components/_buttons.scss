@@ -42,15 +42,14 @@
     right: 0;
     bottom: 0;
     left: 0;
-    box-shadow: 0 8px 24px rgba(color(typography, 1), .12);
+    box-shadow: 0 8px 24px rgba(color(typography, 1), 0.12);
     mix-blend-mode: multiply;
-    transition: box-shadow .15s ease;
+    transition: box-shadow 0.15s ease;
   }
 
   &:hover {
-
     &::before {
-      box-shadow: 0 8px 24px rgba(color(typography, 1), .25);
+      box-shadow: 0 8px 24px rgba(color(typography, 1), 0.25);
     }
   }
 }
@@ -60,15 +59,13 @@
   height: 32px;
 
   &.button-shadow {
-
     &::before {
-      box-shadow: 0 4px 16px rgba(color(typography, 1), .12);
+      box-shadow: 0 4px 16px rgba(color(typography, 1), 0.12);
     }
 
     &:hover {
-
       &::before {
-        box-shadow: 0 4px 16px rgba(color(typography, 1), .25);
+        box-shadow: 0 4px 16px rgba(color(typography, 1), 0.25);
       }
     }
   }
@@ -76,16 +73,24 @@
 
 .button-primary {
   color: color(typography, 1i) !important;
-  transition: background .15s ease;
+  transition: background 0.15s ease;
 }
 
 .button-primary {
   background: mix(color(primary, 3), color(primary, 1));
-  background: linear-gradient(65deg, color(primary, 3) 0, color(primary, 1) 100%);
+  background: linear-gradient(
+    65deg,
+    color(primary, 3) 0,
+    color(primary, 1) 100%
+  );
 
   &:hover {
     background: lighten(mix(color(primary, 3), color(primary, 1)), 1%);
-    background: linear-gradient(65deg, lighten(color(primary, 3), 1%) 0, lighten(color(primary, 1), 1%) 100%);
+    background: linear-gradient(
+      65deg,
+      lighten(color(primary, 3), 1%) 0,
+      lighten(color(primary, 1), 1%) 100%
+    );
   }
 }
 

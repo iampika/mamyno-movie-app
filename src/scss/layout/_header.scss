@@ -69,16 +69,29 @@
   }
 }
 
+@keyframes overlay {
+  0% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 #overlay {
   z-index: 2;
   position: absolute;
   right: 0%;
   top: 50px;
+  animation: overlay 0.75s 0s linear;
 }
-
 
 #overlay a:not(:first-child) {
   margin: 50px 0 0;
+}
+
+#overlay a:first-child {
+  margin-top: 15px;
 }
 
 #overlay a {
