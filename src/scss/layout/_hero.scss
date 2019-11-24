@@ -20,3 +20,14 @@
     font-weight: 400;
   }
 }
+
+#hero-button {
+  border-radius: 100px;
+  box-shadow: 0 8px 24px rgba(color(typography, 1), 0.12);
+  mix-blend-mode: multiply;
+  transition: box-shadow 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(color(typography, 1), 0.25);
+  }
+}
