@@ -4,16 +4,24 @@ Mamyno
 
 ## Project Description
 
-An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.
+An application where users can search for movies/series/shows and add to their watch list. After watch the movie/series/show they can remove the movie/series/show from their watch list.
 
 ## What is your motivation for creating this project?
 
-I love to watch movies and I always forgot movies names which I want to watch.
+My motivation for creating this project is I love to watch movies/series and I always forgot movies/series names which I want to watch.
+
+## [Live](https://jakepintu.github.io/mamyno-movie-app/)
+
+https://jakepintu.github.io/mamyno-movie-app/
+
+## Github Projects
+
+https://github.com/jakepintu/mamyno-movie-app/projects/1
 
 ## How will users interact with your web site?
 
-- [ ] Users can search for movies.
-- [ ] Users can add movies to watch list.
+- [ ] Users can search for movies/series/show.
+- [ ] Users can add movies/series/shows to watch list.
   - [ ] Using LocalStorage
 - [ ] Users can view the watch list.
 - [ ] Users can delete movies from the watch list.
@@ -66,7 +74,7 @@ OMDb (The Open Movie Database) API
 - [ ] User can update the date.
 - [ ] User can delete the date.
 - [ ] User can view the movie on the calendar.
-- [x] Use a linter (eslint)
+- [ ] Use a linter (eslint)
 - [ ] Mobile first approach
 - [ ] SEO friendly tags
 - [ ] UI Animations
