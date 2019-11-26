@@ -47,3 +47,39 @@
 .theme-six {
   background: color(themes, 6);
 }
+
+.color1::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #5d55fa;
+  opacity: 1; /* Firefox */
+}
+
+.color2::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #2680c2;
+  opacity: 1; /* Firefox */
+}
+
+.color3::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #de911d;
+  opacity: 1; /* Firefox */
+}
+
+.color4::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #f35627;
+  opacity: 1; /* Firefox */
+}
+
+.color5::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ad2167;
+  opacity: 1; /* Firefox */
+}
+
+.color6::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #5cb70b;
+  opacity: 1; /* Firefox */
+}
