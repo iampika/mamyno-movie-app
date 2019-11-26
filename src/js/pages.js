@@ -1,13 +1,14 @@
+import { fadeInUpAnimation, rubberBandAnimation } from './animation';
+import { showPopularMovies, showWatchLaterMovies } from './api';
+
 const page1 = document.querySelector('.page-1');
 const page2 = document.querySelectorAll('.page-2');
 const themes = document.querySelector('.themes');
 const movies = document.querySelector('.movies');
-import { fadeInUpAnimation, rubberBandAnimation } from './animation';
-import { showPopularMovies, showWatchLaterMovies } from './api';
 
 export const showPage1 = () => {
   page1.style.display = '';
-  page2.forEach(page => {
+  page2.forEach((page) => {
     page.style.display = 'none';
   });
   setTimeout(() => {
@@ -21,7 +22,7 @@ export const showPage2 = () => {
   showWatchLaterMovies();
   showPopularMovies();
   page1.style.display = 'none';
-  page2.forEach(page => {
+  page2.forEach((page) => {
     page.style.display = '';
   });
 

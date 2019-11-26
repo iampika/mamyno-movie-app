@@ -27,7 +27,7 @@ const navToggle = () => {
   overlay.classList.toggle('close');
 };
 
-const formSubmitted = e => {
+const formSubmitted = (e) => {
   e.preventDefault();
   const search = input.value;
   getMovies(search);

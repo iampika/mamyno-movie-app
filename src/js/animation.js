@@ -10,10 +10,10 @@ const themeFive = document.querySelector('.theme-five');
 const themeSix = document.querySelector('.theme-six');
 
 export const toggleAnimation = () => {
-  heroTitle.forEach(title => {
+  heroTitle.forEach((title) => {
     title.classList.toggle('paused');
   });
-  heroParagraph.forEach(paragraph => {
+  heroParagraph.forEach((paragraph) => {
     paragraph.classList.toggle('paused');
   });
   heroButton.classList.toggle('paused');
@@ -34,35 +34,33 @@ export const rubberBandAnimation = (fetching = false) => {
       rubberBand.classList.remove('rubberBand');
       toggleAnimation();
     }, 1000);
-  } else {
-    if (rubberBand.classList.contains('rubberBand')) {
-      if (rubberBand.classList.contains('paused')) {
-        rubberBand.classList.remove('rubberBand');
-        toggleAnimation();
-      }
-    } else if (rubberBand.classList.contains('paused')) {
+  } else if (rubberBand.classList.contains('rubberBand')) {
+    if (rubberBand.classList.contains('paused')) {
+      rubberBand.classList.remove('rubberBand');
       toggleAnimation();
-      rubberBand.classList.add('rubberBand');
-      setTimeout(() => {
-        rubberBand.classList.remove('rubberBand');
-        toggleAnimation();
-      }, 1000);
-    } else {
-      rubberBand.classList.add('rubberBand');
-      setTimeout(() => {
-        rubberBand.classList.remove('rubberBand');
-        toggleAnimation();
-      }, 1000);
     }
+  } else if (rubberBand.classList.contains('paused')) {
+    toggleAnimation();
+    rubberBand.classList.add('rubberBand');
+    setTimeout(() => {
+      rubberBand.classList.remove('rubberBand');
+      toggleAnimation();
+    }, 1000);
+  } else {
+    rubberBand.classList.add('rubberBand');
+    setTimeout(() => {
+      rubberBand.classList.remove('rubberBand');
+      toggleAnimation();
+    }, 1000);
   }
 };
 
 export const fadeInUpAnimation = () => {
   if (themeOne.classList.contains('paused')) {
-    heroTitle.forEach(title => {
+    heroTitle.forEach((title) => {
       title.classList.remove('fadeInUp');
     });
-    heroParagraph.forEach(paragraph => {
+    heroParagraph.forEach((paragraph) => {
       paragraph.classList.remove('fadeInUp');
     });
     heroButton.classList.remove('fadeInUp');
@@ -74,10 +72,10 @@ export const fadeInUpAnimation = () => {
     themeSix.classList.remove('fadeInUp');
     toggleAnimation();
   } else {
-    heroTitle.forEach(title => {
+    heroTitle.forEach((title) => {
       title.classList.add('fadeInUp');
     });
-    heroParagraph.forEach(paragraph => {
+    heroParagraph.forEach((paragraph) => {
       paragraph.classList.add('fadeInUp');
     });
     heroButton.classList.add('fadeInUp');
@@ -88,10 +86,10 @@ export const fadeInUpAnimation = () => {
     themeFive.classList.add('fadeInUp');
     themeSix.classList.add('fadeInUp');
     setTimeout(() => {
-      heroTitle.forEach(title => {
+      heroTitle.forEach((title) => {
         title.classList.remove('fadeInUp');
       });
-      heroParagraph.forEach(paragraph => {
+      heroParagraph.forEach((paragraph) => {
         paragraph.classList.remove('fadeInUp');
       });
       heroButton.classList.remove('fadeInUp');

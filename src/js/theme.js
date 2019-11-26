@@ -1,3 +1,9 @@
+import {
+  fadeInUpAnimation,
+  rubberBandAnimation,
+  toggleAnimation,
+} from './animation';
+
 const headerSvg = document.querySelector('#header-svg');
 const heroButton = document.querySelector('#hero-button');
 const bodyWrap = document.querySelector('.body-wrap');
@@ -11,12 +17,6 @@ const brand = document.querySelector('#brand');
 const username = document.querySelector('#username');
 const noMovies = document.querySelector('.no-movies');
 
-import {
-  fadeInUpAnimation,
-  rubberBandAnimation,
-  toggleAnimation,
-} from './animation';
-
 export const changeThemeColor = (color1, color2, color3, color4) => {
   headerSvg.style.fill = color1;
   heroButton.style.background = `linear-gradient(65deg, ${color2} 0, ${color3} 100%)`;
@@ -27,25 +27,25 @@ export const changeThemeColor = (color1, color2, color3, color4) => {
   brand.style.color = color2;
   username.style.color = color2;
   noMovies.style.color = color2;
-  watchingCircle.forEach(circle => {
+  watchingCircle.forEach((circle) => {
     circle.style.borderColor = color1;
   });
-  h3.forEach(h => {
+  h3.forEach((h) => {
     h.style.color = color2;
   });
-  heroTitle.forEach(title => {
+  heroTitle.forEach((title) => {
     title.style.color = color2;
   });
-  heroParagraph.forEach(paragraph => {
+  heroParagraph.forEach((paragraph) => {
     paragraph.style.color = color2;
   });
-  fab.forEach(ele => {
+  fab.forEach((ele) => {
     ele.style.color = color2;
   });
 };
 
 const removeInputPlaceholderColor = () => {
-  [1, 2, 3, 4, 5, 6].forEach(num => {
+  [1, 2, 3, 4, 5, 6].forEach((num) => {
     input.classList.remove(`color${num}`);
   });
 };
