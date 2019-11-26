@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.",
   "main": ".eslintrc.js",
-  "scripts": {},
+  "scripts": {
+    "start": "parcel index.html -d docs --open"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jakepintu/mamyno-movie-app.git"
@@ -16,5 +18,12 @@
   },
   "homepage": "https://github.com/jakepintu/mamyno-movie-app#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.23.7",
+    "stylelint": "^12.0.0"
+  }
 }
