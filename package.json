@@ -2,9 +2,10 @@
   "name": "mamyno-movie-app",
   "version": "1.0.0",
   "description": "An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.",
-  "main": ".eslintrc.js",
+  "main": "index.html",
   "scripts": {
-    "start": "parcel index.html -d docs --open"
+    "start": "parcel index.html -d docs --open",
+    "build": "parcel build index.html -d docs"
   },
   "repository": {
     "type": "git",

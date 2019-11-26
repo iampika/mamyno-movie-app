@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mamyno</title>
+    <meta name="description" content="An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.33b724c6.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16X16.e84175de.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.43b30f10.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.26109a4b.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|Roboto:500" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6e576f8baa.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/app.77c12427.css"></head>
+
+  <body class="is-boxed">
+    <div class="body-wrap boxed-container">
+      <header class="site-header">
+        <svg class="header-svg" id="rubberBand" width="1480" height="650" xmlns="http://www.w3.org/2000/svg">
+          <path id="header-svg" d="M731.207 649.802C935.484 642.14 1480 337.325 1480 180.888c0-156.438-309.744-36.055-720-36.055S0-174.483 0 135.144c0 309.627 526.93 522.32 731.207 514.658z" fill="#d9e2ec" fill-rule="evenodd"></path>
+        </svg>
+        <div class="container">
+          <div class="site-header-inner">
+            <div class="brand header-brand">
+              <a id="brand" href="#"> Mamyno </a>
+            </div>
+            <div>
+              <a href="#" id="navBar">
+                <span class="username" id="username">
+                  @jakepintu
+                </span>
+              </a>
+              <div id="overlay" class="close">
+                <a href="https://medium.com/@jakepintu" target="_blank" class="clickAnime">
+                  <i class="fab fa-medium-m"></i>
+                </a>
+                <a href="https://github.com/jakepintu" target="_blank" class="clickAnime">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/jakepintu" target="_blank" class="clickAnime">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="page-1">
+          <section class="hero text-center">
+            <div class="container-sm">
+              <div class="hero-inner">
+                <h1 class="hero-title">A personal movie watchlist</h1>
+                <p class="hero-paragraph">
+                  Mamyno is a simple application to search and save movies you
+                  still need to watch.
+                </p>
+                <a id="hero-button" class="button button-primary" href="#">
+                  Get started now
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="page-2">
+          <section class="hero text-center">
+            <div class="container-sm">
+              <div class="hero-inner">
+                <h1 class="hero-title">Your favourite movies. Listed</h1>
+                <p class="hero-paragraph">
+                  Figure out what to watch. Then watch it.
+                </p>
+                <form>
+                  <input type="text" class="input" id="search-input" placeholder="Search for movies">
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+        <section>
+          <div class="themes">
+            <div class="theme-one"></div>
+            <div class="theme-two"></div>
+            <div class="theme-three"></div>
+            <div class="theme-four"></div>
+            <div class="theme-five"></div>
+            <div class="theme-six"></div>
+          </div>
+        </section>
+        <div class="page-2">
+          <section>
+            <ul class="movies" id="movies"></ul>
+          </section>
+          <section>
+            <div class="watching">
+              <div class="watching-header">
+                <div class="watching-circle"></div>
+                <h3>Watch Later</h3>
+              </div>
+              <div class="watching-body">
+                <p class="no-movies">You have no movies.</p>
+                <div class="watching-movies movies none"></div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="watching">
+              <div class="watching-header">
+                <div class="watching-circle"></div>
+                <h3>Popular Movies</h3>
+              </div>
+              <ul class="movies" id="popular-movies"></ul>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="/app.77c12427.js"></script>
+  </body>
+</html>
