@@ -1,30 +1,55 @@
-# Project Name / Title
+# Mamyno Movie App
 
-Mamyno
+> An application where users can search for movies/series/shows and add to their watch list. After watch the movie/series/show they can remove the movie/series/show from their watch list.
 
-## Project Description
+## [View Live Preview](https://jakepintu.github.io/mamyno-movie-app/)
 
-An application where users can search for movies/series/shows and add to their watch list. After watch the movie/series/show they can remove the movie/series/show from their watch list.
+## Table of contents
+
+- [General info](#What-is-your-motivation-for-creating-this-project?)
+- [Screenshots](#Screenshots)
+- [Technologies](#Technologies)
+- [Features](#Features)
+- [Setup](#Setup)
+- [Folder Structure](#Folder-Structure)
+- [3rd Party API(s)](<#What-3rd-Party-API(s)-will-you-integrate-with?>)
+- [Stretch Goals](#Will-you-try-to-implement-any-stretch-features?)
+- [Code Examples](#Code-Examples)
+- [Inspiration](#Inspiration)
+- [Process](#What-will-be-your-process?)
+- [Status](#Status)
+- [Contact](#Contact)
 
 ## What is your motivation for creating this project?
 
 My motivation for creating this project is I love to watch movies/series and I always forgot movies/series names which I want to watch.
 
-## [Live](https://jakepintu.github.io/mamyno-movie-app/)
+## Screenshots
 
-https://jakepintu.github.io/mamyno-movie-app/
+![Landing Page](./assets/LandingPage.png)
+![App Page](./assets/AppPage.png)
 
-## Github Projects
+[Go To Top](#Table-of-contents)
 
-https://github.com/jakepintu/mamyno-movie-app/projects/1
+## Technologies
 
-## How will users interact with your web site?
+- HTML5
+- Scss
+- Vanilla JavaScript
+- No frameworks
+
+[Go To Top](#Table-of-contents)
+
+## Features
 
 - [ ] Users can search for movies/series/show.
 - [ ] Users can add movies/series/shows to watch list.
   - [ ] Using LocalStorage
 - [ ] Users can view the watch list.
 - [ ] Users can delete movies from the watch list.
+
+To-do list:
+
 - [ ] Users can select the status for the movie:
   - Watching
   - Done
@@ -55,18 +80,78 @@ https://github.com/jakepintu/mamyno-movie-app/projects/1
 - [ ] Users can delete the tags for the movies.
 - [ ] Users can update the tags for the movies.
 
+[Go To Top](#Table-of-contents)
+
+## Setup
+
+```
+git clone https://github.com/jakepintu/mamyno-movie-app.git
+```
+
+```
+npm install
+
+OR
+
+yarn install
+```
+
+```
+npm start
+
+OR
+
+yarn start
+```
+
+[Go To Top](#Table-of-contents)
+
+## Folder Structure
+
+```
+├── index.html
+├── package.json
+└── src
+    ├── js
+    │   ├── animation.js
+    │   ├── api.js
+    │   ├── app.js
+    │   ├── pages.js
+    │   ├── popularMovies.js
+    │   └── theme.js
+    └── scss
+        ├── abstracts
+        │   ├── _functions.scss
+        │   ├── _include-media.scss
+        │   ├── _mixins.scss
+        │   └── _variables.scss
+        ├── base
+        │   ├── _base.scss
+        │   ├── _helpers.scss
+        │   └── _typography.scss
+        ├── components
+        │   ├── _buttons.scss
+        │   └── _forms.scss
+        ├── layout
+        │   ├── _header.scss
+        │   ├── _hero.scss
+        │   ├── _main.scss
+        │   └── _movies.scss
+        ├── _normalize.scss
+        ├── _themes.scss
+        ├── _animation.scss
+        └── style.scss
+```
+
+[Go To Top](#Table-of-contents)
+
 ## What 3rd Party API(s) will you integrate with?
 
 OMDb (The Open Movie Database) API
 
 - Link to the API documentation here - https://www.omdbapi.com/
 
-## Tech Stack
-
-- HTML5
-- CSS3
-- Vanilla Js
-- No frameworks.
+[Go To Top](#Table-of-contents)
 
 ## Will you try to implement any stretch features?
 
@@ -88,6 +173,19 @@ OMDb (The Open Movie Database) API
 - [ ] 100% lighthouse score
 - [ ] Use a CI / CD pipeline
 
+[Go To Top](#Table-of-contents)
+
+## Code Examples
+
+[Go To Top](#Table-of-contents)
+
+## Inspiration
+
+![Inspiration 1](./assets/Inspiration/inspiration1.png)
+![Inspiration 2](./assets/Inspiration/inspiration2.png)
+
+[Go To Top](#Table-of-contents)
+
 ## What will be your process?
 
 - What project management tool will you use?
@@ -99,3 +197,17 @@ OMDb (The Open Movie Database) API
   - I will test the finished website on my computer.
 - How will you design the layout of your website? Will you use a wireframing tool? Will you draw it on paper?
   - I will use https://wireframe.cc/
+
+[Go To Top](#Table-of-contents)
+
+## Status
+
+Project is: _in progress_
+
+[Go To Top](#Table-of-contents)
+
+## Contact
+
+Created by [@jakepintu](https://www.twitter.com/@jakepintu) - feel free to contact me!
+
+[Go To Top](#Table-of-contents)
