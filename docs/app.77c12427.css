@@ -270,7 +270,8 @@ hr {
   margin-bottom: 24px;
 }
 
-ul, ol {
+ul,
+ol {
   margin-top: 0;
   margin-bottom: 24px;
   padding-left: 24px;
@@ -391,8 +392,18 @@ a:hover, a:active {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   clear: both;
   color: #202b36;
   font-family: "Roboto", sans-serif;
@@ -503,8 +514,18 @@ h6,
   color: rgba(255, 255, 255, 0.8);
 }
 
-.text-light h1, .text-light h2, .text-light h3, .text-light h4, .text-light h5, .text-light h6,
-.text-light .h1, .text-light .h2, .text-light .h3, .text-light .h4, .text-light .h5, .text-light .h6 {
+.text-light h1,
+.text-light h2,
+.text-light h3,
+.text-light h4,
+.text-light h5,
+.text-light h6,
+.text-light .h1,
+.text-light .h2,
+.text-light .h3,
+.text-light .h4,
+.text-light .h5,
+.text-light .h6 {
   color: #fff !important;
 }
 
@@ -520,8 +541,10 @@ h6,
   letter-spacing: -0.1px;
 }
 
-h1, h2,
-.h1, .h2 {
+h1,
+h2,
+.h1,
+.h2 {
   margin-top: 48px;
   margin-bottom: 16px;
 }
@@ -532,8 +555,12 @@ h3,
   margin-bottom: 12px;
 }
 
-h4, h5, h6,
-.h4, .h5, .h6 {
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
   margin-top: 24px;
   margin-bottom: 4px;
 }
@@ -543,7 +570,10 @@ p {
   margin-bottom: 24px;
 }
 
-dfn, cite, em, i {
+dfn,
+cite,
+em,
+i {
   font-style: italic;
 }
 
@@ -589,7 +619,11 @@ pre .h6 {
   font-family: "Courier 10 Pitch", Courier, monospace;
 }
 
-pre, code, kbd, tt, var {
+pre,
+code,
+kbd,
+tt,
+var {
   background: #f6f8fa;
 }
 
@@ -604,17 +638,22 @@ pre {
   margin-bottom: 24px;
 }
 
-code, kbd, tt, var {
+code,
+kbd,
+tt,
+var {
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   font-size: 16px;
   padding: 2px 4px;
 }
 
-abbr, acronym {
+abbr,
+acronym {
   cursor: help;
 }
 
-mark, ins {
+mark,
+ins {
   text-decoration: none;
 }
 

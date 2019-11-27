@@ -474,7 +474,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.showPopularMovies = exports.showWatchLaterMovies = exports.getMovies = exports.generateMovie = void 0;
+exports.getMovies = exports.showPopularMovies = exports.showWatchLaterMovies = exports.generateMovie = void 0;
 
 var _app = require("./app");
 
@@ -482,7 +482,7 @@ var _popularMovies = _interopRequireDefault(require("./popularMovies"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var API_KEY = 'http://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
+var API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 var list = document.querySelector('#movies');
 var themes = document.querySelector('.themes');
 var watchingMovies = document.querySelector('.watching-movies');
@@ -494,6 +494,67 @@ var generateMovie = function generateMovie(movie, name) {
 };
 
 exports.generateMovie = generateMovie;
+
+var showWatchLaterMovies = function showWatchLaterMovies() {
+  if (_app.state.watchLaterMovies.length >= 0) {
+    watchingMovies.classList.remove('none');
+    watchingMovies.innerHTML = '';
+
+    _app.state.watchLaterMovies.forEach(function (movie) {
+      watchingMovies.innerHTML += generateMovie(movie, 'Remove', 'remove-button');
+      themes.style.display = 'none';
+    });
+
+    var buttons = document.querySelectorAll('.remove-button');
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        _app.state.watchLaterMovies.forEach(function (movie) {
+          if (movie.imdbID === button.dataset.movieid) {
+            _app.state.watchLaterMovies = _app.state.watchLaterMovies.filter(function (m) {
+              return m.imdbID !== button.dataset.movieid;
+            });
+            showWatchLaterMovies();
+            localStorage.setItem('state', JSON.stringify(_app.state));
+          }
+        });
+      });
+    });
+  }
+};
+
+exports.showWatchLaterMovies = showWatchLaterMovies;
+
+var showPopularMovies = function showPopularMovies() {
+  _app.state.popularMovies = _popularMovies.default;
+
+  if (_app.state.popularMovies) {
+    _app.state.popularMovies.forEach(function (movie) {
+      popularMovies.innerHTML += generateMovie(movie, 'Watch Later', 'popular-movies');
+    });
+  }
+
+  var buttons = document.querySelectorAll('.popular-movies');
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var isMovieExit = !(_app.state.watchLaterMovies.filter(function (movie) {
+        return movie.imdbID === button.dataset.movieid;
+      }).length > 0);
+
+      if (isMovieExit) {
+        _app.state.popularMovies.forEach(function (movie) {
+          if (movie.imdbID === button.dataset.movieid) {
+            _app.state.watchLaterMovies.push(movie);
+
+            showWatchLaterMovies();
+            localStorage.setItem('state', JSON.stringify(_app.state));
+          }
+        });
+      }
+    });
+  });
+};
+
+exports.showPopularMovies = showPopularMovies;
 
 var getMovies = function getMovies(value) {
   var url = API_KEY + value;
@@ -538,67 +599,6 @@ var getMovies = function getMovies(value) {
 };
 
 exports.getMovies = getMovies;
-
-var showWatchLaterMovies = function showWatchLaterMovies() {
-  if (_app.state.watchLaterMovies.length >= 0) {
-    watchingMovies.classList.remove('none');
-    watchingMovies.innerHTML = '';
-
-    _app.state.watchLaterMovies.forEach(function (movie) {
-      watchingMovies.innerHTML += generateMovie(movie, 'Remove', 'remove-button');
-      themes.style.display = 'none';
-    });
-
-    var buttons = document.querySelectorAll('.remove-button');
-    buttons.forEach(function (button) {
-      button.addEventListener('click', function () {
-        _app.state.watchLaterMovies.forEach(function (movie) {
-          if (movie.imdbID === button.dataset.movieid) {
-            _app.state.watchLaterMovies = _app.state.watchLaterMovies.filter(function (movie) {
-              return movie.imdbID !== button.dataset.movieid;
-            });
-            showWatchLaterMovies();
-            localStorage.setItem('state', JSON.stringify(_app.state));
-          }
-        });
-      });
-    });
-  }
-};
-
-exports.showWatchLaterMovies = showWatchLaterMovies;
-
-var showPopularMovies = function showPopularMovies() {
-  _app.state.popularMovies = _popularMovies.default;
-
-  if (_app.state.popularMovies) {
-    _app.state.popularMovies.forEach(function (movie) {
-      popularMovies.innerHTML += generateMovie(movie, 'Watch Later', 'popular-movies');
-    });
-  }
-
-  var buttons = document.querySelectorAll('.popular-movies');
-  buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var isMovieExit = !(_app.state.watchLaterMovies.filter(function (movie) {
-        return movie.imdbID === button.dataset.movieid;
-      }).length > 0);
-
-      if (isMovieExit) {
-        _app.state.popularMovies.forEach(function (movie) {
-          if (movie.imdbID === button.dataset.movieid) {
-            _app.state.watchLaterMovies.push(movie);
-
-            showWatchLaterMovies();
-            localStorage.setItem('state', JSON.stringify(_app.state));
-          }
-        });
-      }
-    });
-  });
-};
-
-exports.showPopularMovies = showPopularMovies;
 },{"./app":"src/js/app.js","./popularMovies":"src/js/popularMovies.js"}],"src/js/animation.js":[function(require,module,exports) {
 "use strict";
 
@@ -646,26 +646,24 @@ var rubberBandAnimation = function rubberBandAnimation() {
       rubberBand.classList.remove('rubberBand');
       toggleAnimation();
     }, 1000);
-  } else {
-    if (rubberBand.classList.contains('rubberBand')) {
-      if (rubberBand.classList.contains('paused')) {
-        rubberBand.classList.remove('rubberBand');
-        toggleAnimation();
-      }
-    } else if (rubberBand.classList.contains('paused')) {
+  } else if (rubberBand.classList.contains('rubberBand')) {
+    if (rubberBand.classList.contains('paused')) {
+      rubberBand.classList.remove('rubberBand');
       toggleAnimation();
-      rubberBand.classList.add('rubberBand');
-      setTimeout(function () {
-        rubberBand.classList.remove('rubberBand');
-        toggleAnimation();
-      }, 1000);
-    } else {
-      rubberBand.classList.add('rubberBand');
-      setTimeout(function () {
-        rubberBand.classList.remove('rubberBand');
-        toggleAnimation();
-      }, 1000);
     }
+  } else if (rubberBand.classList.contains('paused')) {
+    toggleAnimation();
+    rubberBand.classList.add('rubberBand');
+    setTimeout(function () {
+      rubberBand.classList.remove('rubberBand');
+      toggleAnimation();
+    }, 1000);
+  } else {
+    rubberBand.classList.add('rubberBand');
+    setTimeout(function () {
+      rubberBand.classList.remove('rubberBand');
+      toggleAnimation();
+    }, 1000);
   }
 };
 
@@ -982,7 +980,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52622" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37545" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
