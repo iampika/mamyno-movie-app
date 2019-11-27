@@ -18,8 +18,13 @@
     "url": "https://github.com/jakepintu/mamyno-movie-app/issues"
   },
   "homepage": "https://github.com/jakepintu/mamyno-movie-app#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.7.4"
+  },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/runtime": "^7.7.4",
     "eslint": "^6.7.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
