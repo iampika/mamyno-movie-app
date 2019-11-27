@@ -6,17 +6,17 @@
 
 ## Table of contents
 
-- [General info](#What-is-your-motivation-for-creating-this-project?)
+- [General info](#What-is-your-motivation-for-creating-this-project)
 - [Screenshots](#Screenshots)
 - [Technologies](#Technologies)
 - [Features](#Features)
 - [Setup](#Setup)
 - [Folder Structure](#Folder-Structure)
-- [3rd Party API(s)](<#What-3rd-Party-API(s)-will-you-integrate-with?>)
-- [Stretch Goals](#Will-you-try-to-implement-any-stretch-features?)
+- [3rd Party API(s)](<#What-3rd-Party-API(s)-will-you-integrate-with>)
+- [Stretch Goals](#Will-you-try-to-implement-any-stretch-features)
 - [Code Examples](#Code-Examples)
 - [Inspiration](#Inspiration)
-- [Process](#What-will-be-your-process?)
+- [Process](#What-will-be-your-process)
 - [Status](#Status)
 - [Contact](#Contact)
 
