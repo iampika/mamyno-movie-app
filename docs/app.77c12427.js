@@ -1215,6 +1215,7 @@ var _popularMovies = _interopRequireDefault(require("./popularMovies"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var noMovies = document.querySelector('.no-movies');
 var API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 var list = document.querySelector('#movies');
 var themes = document.querySelector('.themes');
@@ -1231,6 +1232,7 @@ exports.generateMovie = generateMovie;
 var showWatchLaterMovies = function showWatchLaterMovies() {
   if (_app.state.watchLaterMovies.length >= 0) {
     watchingMovies.classList.remove('none');
+    noMovies.classList.add('none');
     watchingMovies.innerHTML = '';
 
     _app.state.watchLaterMovies.forEach(function (movie) {
@@ -1729,7 +1731,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39725" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42797" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

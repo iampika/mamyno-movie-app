@@ -1,6 +1,8 @@
 import { state } from './app';
 import popularMoviesData from './popularMovies';
 
+const noMovies = document.querySelector('.no-movies');
+
 const API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 const list = document.querySelector('#movies');
 const themes = document.querySelector('.themes');
@@ -28,6 +30,7 @@ export const generateMovie = (movie, name, button = '') => `
 export const showWatchLaterMovies = () => {
   if (state.watchLaterMovies.length >= 0) {
     watchingMovies.classList.remove('none');
+    noMovies.classList.add('none');
     watchingMovies.innerHTML = '';
 
     state.watchLaterMovies.forEach((movie) => {

@@ -1516,6 +1516,7 @@ main {
   box-shadow: 0 8px 24px rgba(32, 43, 54, 0.12);
   mix-blend-mode: multiply;
   transition: box-shadow 0.15s ease;
+  line-height: 20px;
 }
 #hero-button:hover {
   box-shadow: 0 8px 24px rgba(32, 43, 54, 0.25);
