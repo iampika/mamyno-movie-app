@@ -1,7 +1,7 @@
 import { state } from './app';
 import popularMoviesData from './popularMovies';
 
-const API_KEY = 'http://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
+const API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 const list = document.querySelector('#movies');
 const themes = document.querySelector('.themes');
 const watchingMovies = document.querySelector('.watching-movies');
