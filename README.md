@@ -111,13 +111,14 @@ yarn start
 ## Folder Structure
 
 ```
-├── index.html
 ├── package.json
+├── README.md
 └── src
+    ├── index.html
+    ├── app.js
     ├── js
     │   ├── animation.js
     │   ├── api.js
-    │   ├── app.js
     │   ├── pages.js
     │   ├── popularMovies.js
     │   └── theme.js
@@ -140,8 +141,8 @@ yarn start
         │   ├── _main.scss
         │   └── _movies.scss
         ├── _normalize.scss
-        ├── _themes.scss
         ├── _animation.scss
+        ├── _themes.scss
         └── style.scss
 ```
 
@@ -210,7 +211,7 @@ if (JSON.parse(localStorage.getItem('state'))) {
 const generateMovie = (movie, buttonName, buttonClass = '') => `<li></li>`;
 
 const showWatchLaterMovies = () => {
-  if (state.watchLaterMovies.length >= 0) {
+  if (state.watchLaterMovies.length > 0) {
     // ...
     state.watchLaterMovies.forEach((movie) => {
       watchingMovies.innerHTML += generateMovie(
@@ -229,11 +230,14 @@ const showWatchLaterMovies = () => {
           );
           showWatchLaterMovies();
           localStorage.setItem('state', JSON.stringify(state));
-        }
+          }
+        });
       });
     });
-  });
-};
+  } else {
+    // ...
+  }
+}
 
 const showPopularMovies = () => {
   state.popularMovies = popularMoviesData;
