@@ -1,6 +1,5 @@
-import '../scss/style.scss';
-import { getMovies } from './api';
-import { showPage1, showPage2 } from './pages';
+import { getMovies } from './js/api';
+import { showPage1, showPage2 } from './js/pages';
 import {
   changeThemeFive,
   changeThemeFour,
@@ -8,7 +7,8 @@ import {
   changeThemeSix,
   changeThemeThree,
   changeThemeTwo,
-} from './theme';
+} from './js/theme';
+import './scss/style.scss';
 
 const overlay = document.querySelector('#overlay');
 const themeOne = document.querySelector('.theme-one');

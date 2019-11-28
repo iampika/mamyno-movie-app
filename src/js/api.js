@@ -1,4 +1,4 @@
-import { state } from './app';
+import { state } from '../app';
 import popularMoviesData from './popularMovies';
 
 const noMovies = document.querySelector('.no-movies');
@@ -28,8 +28,7 @@ export const generateMovie = (movie, name, button = '') => `
   `;
 
 export const showWatchLaterMovies = () => {
-  if (state.watchLaterMovies.length >= 0) {
-    watchingMovies.classList.remove('none');
+  if (state.watchLaterMovies.length > 0) {
     noMovies.classList.add('none');
     watchingMovies.innerHTML = '';
 
@@ -39,7 +38,6 @@ export const showWatchLaterMovies = () => {
         'Remove',
         'remove-button',
       );
-
       themes.style.display = 'none';
     });
 
@@ -52,12 +50,15 @@ export const showWatchLaterMovies = () => {
             state.watchLaterMovies = state.watchLaterMovies.filter(
               (m) => m.imdbID !== button.dataset.movieid,
             );
-            showWatchLaterMovies();
             localStorage.setItem('state', JSON.stringify(state));
+            showWatchLaterMovies();
           }
         });
       });
     });
+  } else {
+    noMovies.classList.remove('none');
+    watchingMovies.innerHTML = '';
   }
 };
 
