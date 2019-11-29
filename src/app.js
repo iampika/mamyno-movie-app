@@ -22,17 +22,7 @@ const brand = document.querySelector('.brand');
 const heroButton = document.querySelector('#hero-button');
 const form = document.querySelector('form');
 const input = document.querySelector('#search-input');
-
-const navToggle = () => {
-  overlay.classList.toggle('close');
-};
-
-const formSubmitted = (e) => {
-  e.preventDefault();
-  const search = input.value;
-  getMovies(search);
-  input.blur();
-};
+const error = document.querySelector('.error');
 
 export let state = {
   movies: [],
@@ -41,9 +31,30 @@ export let state = {
 
 if (JSON.parse(localStorage.getItem('state'))) {
   state = JSON.parse(localStorage.getItem('state'));
+} else {
+  localStorage.setItem('state', JSON.stringify(state));
 }
 
 showPage1();
+
+const navToggle = () => {
+  overlay.classList.toggle('close');
+};
+
+const formSubmitted = (e) => {
+  e.preventDefault();
+  const search = input.value;
+  if (search.length > 0) {
+    getMovies(search);
+    input.blur();
+    error.classList.add('none');
+  } else {
+    error.classList.remove('none');
+    error.innerHTML = `
+      <p>Please write a valid name</p>
+    `;
+  }
+};
 
 form.addEventListener('submit', formSubmitted);
 brand.addEventListener('click', showPage1);
