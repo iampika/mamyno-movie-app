@@ -2,6 +2,7 @@ import { state } from '../app';
 import popularMoviesData from './popularMovies';
 
 const noMovies = document.querySelector('.no-movies');
+const error = document.querySelector('.error');
 
 const API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 const list = document.querySelector('#movies');
@@ -103,36 +104,45 @@ export const getMovies = async (value) => {
   const res = await fetch(url);
   const data = await res.json();
   state.movies = data.Search;
-  list.innerHTML = '';
-  themes.style.display = '';
-  themes.classList.add('bounceOutRight');
-  setTimeout(() => {
-    if (state.movies) {
-      state.movies.forEach((movie) => {
-        list.innerHTML += generateMovie(movie, 'Watch Later');
-        themes.style.display = 'none';
-      });
-    }
-    const buttons = document.querySelectorAll('.watch-later-button');
+  if (state.movies) {
+    list.innerHTML = '';
+    themes.style.display = '';
+    themes.classList.add('bounceOutRight');
+    setTimeout(() => {
+      if (state.movies) {
+        state.movies.forEach((movie) => {
+          list.innerHTML += generateMovie(movie, 'Watch Later');
+          themes.style.display = 'none';
+        });
+      }
+      const buttons = document.querySelectorAll('.watch-later-button');
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const isMovieExit = !(
-          state.watchLaterMovies.filter(
-            (movie) => movie.imdbID === button.dataset.movieid,
-          ).length > 0
-        );
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const isMovieExit = !(
+            state.watchLaterMovies.filter(
+              (movie) => movie.imdbID === button.dataset.movieid,
+            ).length > 0
+          );
 
-        if (isMovieExit) {
-          state.movies.forEach((movie) => {
-            if (movie.imdbID === button.dataset.movieid) {
-              state.watchLaterMovies.push(movie);
-              showWatchLaterMovies();
-              localStorage.setItem('state', JSON.stringify(state));
-            }
-          });
-        }
+          if (isMovieExit) {
+            state.movies.forEach((movie) => {
+              if (movie.imdbID === button.dataset.movieid) {
+                state.watchLaterMovies.push(movie);
+                showWatchLaterMovies();
+                localStorage.setItem('state', JSON.stringify(state));
+              }
+            });
+          }
+        });
       });
-    });
-  }, 1000);
+
+      error.classList.add('none');
+    }, 1000);
+  } else {
+    error.classList.remove('none');
+    error.innerHTML = `
+      <p>Please write a valid name</p>
+    `;
+  }
 };
