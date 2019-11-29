@@ -1330,6 +1330,24 @@ label {
     margin-right: 8px;
   }
 }
+.error {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fa4252;
+  color: #fa4252;
+  margin-top: 20px;
+  line-height: 20px;
+  border-radius: 2px;
+  padding: 13px 16px;
+  height: 48px;
+  box-shadow: none;
+  font-size: 16px;
+}
+.error p {
+  margin: 0;
+  text-align: left;
+}
+
 /*--------------------------------------------------------------
 # Site content
 --------------------------------------------------------------*/

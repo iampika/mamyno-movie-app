@@ -1144,6 +1144,7 @@ var _popularMovies = _interopRequireDefault(require("./popularMovies"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var noMovies = document.querySelector('.no-movies');
+var error = document.querySelector('.error');
 var API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 var list = document.querySelector('#movies');
 var themes = document.querySelector('.themes');
@@ -1239,39 +1240,46 @@ var getMovies = function getMovies(value) {
         case 6:
           data = _context.sent;
           _app.state.movies = data.Search;
-          list.innerHTML = '';
-          themes.style.display = '';
-          themes.classList.add('bounceOutRight');
-          setTimeout(function () {
-            if (_app.state.movies) {
-              _app.state.movies.forEach(function (movie) {
-                list.innerHTML += generateMovie(movie, 'Watch Later');
-                themes.style.display = 'none';
+
+          if (_app.state.movies) {
+            list.innerHTML = '';
+            themes.style.display = '';
+            themes.classList.add('bounceOutRight');
+            setTimeout(function () {
+              if (_app.state.movies) {
+                _app.state.movies.forEach(function (movie) {
+                  list.innerHTML += generateMovie(movie, 'Watch Later');
+                  themes.style.display = 'none';
+                });
+              }
+
+              var buttons = document.querySelectorAll('.watch-later-button');
+              buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                  var isMovieExit = !(_app.state.watchLaterMovies.filter(function (movie) {
+                    return movie.imdbID === button.dataset.movieid;
+                  }).length > 0);
+
+                  if (isMovieExit) {
+                    _app.state.movies.forEach(function (movie) {
+                      if (movie.imdbID === button.dataset.movieid) {
+                        _app.state.watchLaterMovies.push(movie);
+
+                        showWatchLaterMovies();
+                        localStorage.setItem('state', JSON.stringify(_app.state));
+                      }
+                    });
+                  }
+                });
               });
-            }
+              error.classList.add('none');
+            }, 1000);
+          } else {
+            error.classList.remove('none');
+            error.innerHTML = "\n      <p>Please write a valid name</p>\n    ";
+          }
 
-            var buttons = document.querySelectorAll('.watch-later-button');
-            buttons.forEach(function (button) {
-              button.addEventListener('click', function () {
-                var isMovieExit = !(_app.state.watchLaterMovies.filter(function (movie) {
-                  return movie.imdbID === button.dataset.movieid;
-                }).length > 0);
-
-                if (isMovieExit) {
-                  _app.state.movies.forEach(function (movie) {
-                    if (movie.imdbID === button.dataset.movieid) {
-                      _app.state.watchLaterMovies.push(movie);
-
-                      showWatchLaterMovies();
-                      localStorage.setItem('state', JSON.stringify(_app.state));
-                    }
-                  });
-                }
-              });
-            });
-          }, 1000);
-
-        case 12:
+        case 9:
         case "end":
           return _context.stop();
       }
@@ -1672,18 +1680,7 @@ var brand = document.querySelector('.brand');
 var heroButton = document.querySelector('#hero-button');
 var form = document.querySelector('form');
 var input = document.querySelector('#search-input');
-
-var navToggle = function navToggle() {
-  overlay.classList.toggle('close');
-};
-
-var formSubmitted = function formSubmitted(e) {
-  e.preventDefault();
-  var search = input.value;
-  (0, _api.getMovies)(search);
-  input.blur();
-};
-
+var error = document.querySelector('.error');
 var state = {
   movies: [],
   watchLaterMovies: []
@@ -1692,9 +1689,30 @@ exports.state = state;
 
 if (JSON.parse(localStorage.getItem('state'))) {
   exports.state = state = JSON.parse(localStorage.getItem('state'));
+} else {
+  localStorage.setItem('state', JSON.stringify(state));
 }
 
 (0, _pages.showPage1)();
+
+var navToggle = function navToggle() {
+  overlay.classList.toggle('close');
+};
+
+var formSubmitted = function formSubmitted(e) {
+  e.preventDefault();
+  var search = input.value;
+
+  if (search.length > 0) {
+    (0, _api.getMovies)(search);
+    input.blur();
+    error.classList.add('none');
+  } else {
+    error.classList.remove('none');
+    error.innerHTML = "\n      <p>Please write a valid name</p>\n    ";
+  }
+};
+
 form.addEventListener('submit', formSubmitted);
 brand.addEventListener('click', _pages.showPage1);
 heroButton.addEventListener('click', _pages.showPage2);
@@ -1733,7 +1751,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40195" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35709" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
