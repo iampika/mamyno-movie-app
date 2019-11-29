@@ -2,7 +2,7 @@
 
 > An application where users can search for movies/series/shows and add to their watch list. After watch the movie/series/show they can remove the movie/series/show from their watch list.
 
-## [View Live Preview](https://jakepintu.github.io/mamyno-movie-app/)
+## [View Live Preview](https://iampika.github.io/mamyno-movie-app/)
 
 ## Table of contents
 
