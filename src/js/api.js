@@ -3,6 +3,7 @@ import popularMoviesData from './popularMovies';
 
 const noMovies = document.querySelector('.no-movies');
 const error = document.querySelector('.error');
+const success = document.querySelector('.success');
 
 const API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 const list = document.querySelector('#movies');
@@ -48,11 +49,17 @@ export const showWatchLaterMovies = () => {
       button.addEventListener('click', () => {
         state.watchLaterMovies.forEach((movie) => {
           if (movie.imdbID === button.dataset.movieid) {
+            error.classList.add('none');
+            success.classList.add('none');
             state.watchLaterMovies = state.watchLaterMovies.filter(
               (m) => m.imdbID !== button.dataset.movieid,
             );
             localStorage.setItem('state', JSON.stringify(state));
             showWatchLaterMovies();
+            success.classList.remove('none');
+            success.innerHTML = `
+              <p>Successfully removed</p>
+            `;
           }
         });
       });
@@ -80,6 +87,8 @@ export const showPopularMovies = () => {
 
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
+      error.classList.add('none');
+      success.classList.add('none');
       const isMovieExit = !(
         state.watchLaterMovies.filter(
           (movie) => movie.imdbID === button.dataset.movieid,
@@ -92,8 +101,17 @@ export const showPopularMovies = () => {
             state.watchLaterMovies.push(movie);
             showWatchLaterMovies();
             localStorage.setItem('state', JSON.stringify(state));
+            success.classList.remove('none');
+            success.innerHTML = `
+              <p>Successfully added</p>
+            `;
           }
         });
+      } else {
+        error.classList.remove('none');
+        error.innerHTML = `
+          <p>Already Added</p>
+        `;
       }
     });
   });
@@ -119,6 +137,8 @@ export const getMovies = async (value) => {
 
       buttons.forEach((button) => {
         button.addEventListener('click', () => {
+          error.classList.add('none');
+          success.classList.add('none');
           const isMovieExit = !(
             state.watchLaterMovies.filter(
               (movie) => movie.imdbID === button.dataset.movieid,
@@ -131,15 +151,26 @@ export const getMovies = async (value) => {
                 state.watchLaterMovies.push(movie);
                 showWatchLaterMovies();
                 localStorage.setItem('state', JSON.stringify(state));
+                success.classList.remove('none');
+                success.innerHTML = `
+                  <p>Successfully added</p>
+                `;
               }
             });
+          } else {
+            error.classList.remove('none');
+            error.innerHTML = `
+              <p>Already Added.</p>
+            `;
           }
         });
       });
 
+      success.classList.add('none');
       error.classList.add('none');
     }, 1000);
   } else {
+    success.classList.add('none');
     error.classList.remove('none');
     error.innerHTML = `
       <p>Please write a valid name</p>

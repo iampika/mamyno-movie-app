@@ -97,8 +97,27 @@
   }
 }
 
+.success {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #01d28e;
+  color: #01d28e;
+  margin-top: 20px;
+  line-height: 20px;
+  border-radius: 2px;
+  padding: 13px 16px;
+  height: 48px;
+  box-shadow: none;
+  font-size: 16px;
+
+  p {
+    margin: 0;
+    text-align: left;
+  }
+}
+
+
 .error {
-  // background-color: #ffbbcc;
   border-width: 1px;
   border-style: solid;
   border-color: #fa4252;

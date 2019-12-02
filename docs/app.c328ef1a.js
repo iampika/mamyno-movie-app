@@ -1145,6 +1145,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var noMovies = document.querySelector('.no-movies');
 var error = document.querySelector('.error');
+var success = document.querySelector('.success');
 var API_KEY = 'https://www.omdbapi.com/?apikey=bfaa96ab&?type=movie&s=';
 var list = document.querySelector('#movies');
 var themes = document.querySelector('.themes');
@@ -1173,11 +1174,15 @@ var showWatchLaterMovies = function showWatchLaterMovies() {
       button.addEventListener('click', function () {
         _app.state.watchLaterMovies.forEach(function (movie) {
           if (movie.imdbID === button.dataset.movieid) {
+            error.classList.add('none');
+            success.classList.add('none');
             _app.state.watchLaterMovies = _app.state.watchLaterMovies.filter(function (m) {
               return m.imdbID !== button.dataset.movieid;
             });
             localStorage.setItem('state', JSON.stringify(_app.state));
             showWatchLaterMovies();
+            success.classList.remove('none');
+            success.innerHTML = "\n              <p>Successfully removed</p>\n            ";
           }
         });
       });
@@ -1202,6 +1207,8 @@ var showPopularMovies = function showPopularMovies() {
   var buttons = document.querySelectorAll('.popular-movies');
   buttons.forEach(function (button) {
     button.addEventListener('click', function () {
+      error.classList.add('none');
+      success.classList.add('none');
       var isMovieExit = !(_app.state.watchLaterMovies.filter(function (movie) {
         return movie.imdbID === button.dataset.movieid;
       }).length > 0);
@@ -1213,8 +1220,13 @@ var showPopularMovies = function showPopularMovies() {
 
             showWatchLaterMovies();
             localStorage.setItem('state', JSON.stringify(_app.state));
+            success.classList.remove('none');
+            success.innerHTML = "\n              <p>Successfully added</p>\n            ";
           }
         });
+      } else {
+        error.classList.remove('none');
+        error.innerHTML = "\n          <p>Already Added</p>\n        ";
       }
     });
   });
@@ -1256,6 +1268,8 @@ var getMovies = function getMovies(value) {
               var buttons = document.querySelectorAll('.watch-later-button');
               buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
+                  error.classList.add('none');
+                  success.classList.add('none');
                   var isMovieExit = !(_app.state.watchLaterMovies.filter(function (movie) {
                     return movie.imdbID === button.dataset.movieid;
                   }).length > 0);
@@ -1267,14 +1281,21 @@ var getMovies = function getMovies(value) {
 
                         showWatchLaterMovies();
                         localStorage.setItem('state', JSON.stringify(_app.state));
+                        success.classList.remove('none');
+                        success.innerHTML = "\n                  <p>Successfully added</p>\n                ";
                       }
                     });
+                  } else {
+                    error.classList.remove('none');
+                    error.innerHTML = "\n              <p>Already Added.</p>\n            ";
                   }
                 });
               });
+              success.classList.add('none');
               error.classList.add('none');
             }, 1000);
           } else {
+            success.classList.add('none');
             error.classList.remove('none');
             error.innerHTML = "\n      <p>Please write a valid name</p>\n    ";
           }
@@ -1681,6 +1702,7 @@ var heroButton = document.querySelector('#hero-button');
 var form = document.querySelector('form');
 var input = document.querySelector('#search-input');
 var error = document.querySelector('.error');
+var success = document.querySelector('.success');
 var state = {
   movies: [],
   watchLaterMovies: []
@@ -1706,8 +1728,8 @@ var formSubmitted = function formSubmitted(e) {
   if (search.length > 0) {
     (0, _api.getMovies)(search);
     input.blur();
-    error.classList.add('none');
   } else {
+    success.classList.add('none');
     error.classList.remove('none');
     error.innerHTML = "\n      <p>Please write a valid name</p>\n    ";
   }
@@ -1751,7 +1773,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52416" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53225" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

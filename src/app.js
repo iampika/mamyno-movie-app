@@ -1,13 +1,6 @@
 import { getMovies } from './js/api';
 import { showPage1, showPage2 } from './js/pages';
-import {
-  changeThemeFive,
-  changeThemeFour,
-  changeThemeOne,
-  changeThemeSix,
-  changeThemeThree,
-  changeThemeTwo,
-} from './js/theme';
+import { changeThemeFive, changeThemeFour, changeThemeOne, changeThemeSix, changeThemeThree, changeThemeTwo } from './js/theme';
 import './scss/style.scss';
 
 const overlay = document.querySelector('#overlay');
@@ -23,6 +16,7 @@ const heroButton = document.querySelector('#hero-button');
 const form = document.querySelector('form');
 const input = document.querySelector('#search-input');
 const error = document.querySelector('.error');
+const success = document.querySelector('.success');
 
 export let state = {
   movies: [],
@@ -47,8 +41,8 @@ const formSubmitted = (e) => {
   if (search.length > 0) {
     getMovies(search);
     input.blur();
-    error.classList.add('none');
   } else {
+    success.classList.add('none');
     error.classList.remove('none');
     error.innerHTML = `
       <p>Please write a valid name</p>
