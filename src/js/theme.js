@@ -6,15 +6,15 @@ import {
 
 const headerSvg = document.querySelector('#header-svg');
 const heroButton = document.querySelector('#hero-button');
+const input = document.querySelector('#search-input');
+const brand = document.querySelector('#brand');
+const username = document.querySelector('#username');
 const bodyWrap = document.querySelector('.body-wrap');
 const fab = document.querySelectorAll('.fab');
-const input = document.querySelector('#search-input');
 const watchingCircle = document.querySelectorAll('.watching-circle');
 const h3 = document.querySelectorAll('h3');
 const heroTitle = document.querySelectorAll('.hero-title');
 const heroParagraph = document.querySelectorAll('.hero-paragraph');
-const brand = document.querySelector('#brand');
-const username = document.querySelector('#username');
 const noMovies = document.querySelector('.no-movies');
 
 export const changeThemeColor = (color1, color2, color3, color4) => {

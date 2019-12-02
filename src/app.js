@@ -1,6 +1,13 @@
 import { getMovies } from './js/api';
 import { showPage1, showPage2 } from './js/pages';
-import { changeThemeFive, changeThemeFour, changeThemeOne, changeThemeSix, changeThemeThree, changeThemeTwo } from './js/theme';
+import {
+  changeThemeFive,
+  changeThemeFour,
+  changeThemeOne,
+  changeThemeSix,
+  changeThemeThree,
+  changeThemeTwo,
+} from './js/theme';
 import './scss/style.scss';
 
 const overlay = document.querySelector('#overlay');

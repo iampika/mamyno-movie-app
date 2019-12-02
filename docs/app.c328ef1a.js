@@ -1490,15 +1490,15 @@ var _animation = require("./animation");
 
 var headerSvg = document.querySelector('#header-svg');
 var heroButton = document.querySelector('#hero-button');
+var input = document.querySelector('#search-input');
+var brand = document.querySelector('#brand');
+var username = document.querySelector('#username');
 var bodyWrap = document.querySelector('.body-wrap');
 var fab = document.querySelectorAll('.fab');
-var input = document.querySelector('#search-input');
 var watchingCircle = document.querySelectorAll('.watching-circle');
 var h3 = document.querySelectorAll('h3');
 var heroTitle = document.querySelectorAll('.hero-title');
 var heroParagraph = document.querySelectorAll('.hero-paragraph');
-var brand = document.querySelector('#brand');
-var username = document.querySelector('#username');
 var noMovies = document.querySelector('.no-movies');
 
 var changeThemeColor = function changeThemeColor(color1, color2, color3, color4) {
@@ -1773,7 +1773,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53225" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54553" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
