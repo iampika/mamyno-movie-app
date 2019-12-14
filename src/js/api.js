@@ -160,13 +160,20 @@ export const getMovies = async (value) => {
                 success.innerHTML = `
                   <p>Successfully added</p>
                 `;
+
+                setTimeout(() => {
+                  success.classList.add('none');
+                }, 2000);
               }
             });
           } else {
             error.classList.remove('none');
             error.innerHTML = `
-              <p>Already Added.</p>
+            <p>Already Added.</p>
             `;
+            setTimeout(() => {
+              error.classList.add('none');
+            }, 2000);
           }
         });
       });
