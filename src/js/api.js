@@ -11,23 +11,46 @@ const themes = document.querySelector('.themes');
 const watchingMovies = document.querySelector('.watching-movies');
 const popularMovies = document.querySelector('#popular-movies');
 
-export const generateMovie = (movie, name, button = '') => `
-      <li
-        class="movies__card fadeInUp"
-        style="background-image: url(${movie.Poster})"
-      >
-        <div>
-          <div>
-            <span>${movie.Year}</span>
-            <h2>
-              <a href="/">${movie.Title}</a>
-            </h2>
-            <p>
-              <button data-movieid="${movie.imdbID}" class="button watch-later-button ${button}">${name}</button>
-            </p>
-          </div>
-      </li>
-  `;
+export const movieGenerator = (movie, buttonName, buttonClass = '') => {
+  // Elements
+  const li = document.createElement('li');
+  const div = document.createElement('div');
+  const span = document.createElement('span');
+  const h2 = document.createElement('h2');
+  const a = document.createElement('a');
+  const p = document.createElement('p');
+  const button = document.createElement('button');
+
+  // Append elements
+  li.appendChild(div);
+  div.appendChild(span);
+  div.appendChild(h2);
+  div.appendChild(p);
+  h2.appendChild(a);
+  p.appendChild(button);
+
+  // Attributes
+  a.href = '/';
+  button.setAttribute('data-movieid', movie.imdbID);
+
+  // textContent
+  span.textContent = movie.Year;
+  a.textContent = movie.Title;
+  button.textContent = buttonName;
+
+  // ClassLists
+  li.classList.add('movies__card', 'fadeInUp');
+  if (buttonClass) {
+    button.classList.add('button', 'watch-later-button', `${buttonClass}`);
+  } else {
+    button.classList.add('button', 'watch-later-button');
+  }
+
+  // Styles
+  li.style.backgroundImage = `url(${movie.Poster})`;
+
+  return li;
+};
 
 export const showWatchLaterMovies = () => {
   if (state.watchLaterMovies.length > 0) {
@@ -35,10 +58,8 @@ export const showWatchLaterMovies = () => {
     watchingMovies.innerHTML = '';
 
     state.watchLaterMovies.forEach((movie) => {
-      watchingMovies.innerHTML += generateMovie(
-        movie,
-        'Remove',
-        'remove-button',
+      watchingMovies.appendChild(
+        movieGenerator(movie, 'Remove', 'remove-button'),
       );
       themes.style.display = 'none';
     });
@@ -75,10 +96,8 @@ export const showPopularMovies = () => {
 
   if (state.popularMovies) {
     state.popularMovies.forEach((movie) => {
-      popularMovies.innerHTML += generateMovie(
-        movie,
-        'Watch Later',
-        'popular-movies',
+      popularMovies.appendChild(
+        movieGenerator(movie, 'Watch Later', 'popular-movies'),
       );
     });
   }
@@ -129,7 +148,7 @@ export const getMovies = async (value) => {
     setTimeout(() => {
       if (state.movies) {
         state.movies.forEach((movie) => {
-          list.innerHTML += generateMovie(movie, 'Watch Later');
+          list.appendChild(movieGenerator(movie, 'Watch Later'));
           themes.style.display = 'none';
         });
       }

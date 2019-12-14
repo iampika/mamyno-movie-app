@@ -1133,7 +1133,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getMovies = exports.showPopularMovies = exports.showWatchLaterMovies = exports.generateMovie = void 0;
+exports.getMovies = exports.showPopularMovies = exports.showWatchLaterMovies = exports.movieGenerator = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -1152,12 +1152,45 @@ var themes = document.querySelector('.themes');
 var watchingMovies = document.querySelector('.watching-movies');
 var popularMovies = document.querySelector('#popular-movies');
 
-var generateMovie = function generateMovie(movie, name) {
-  var button = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-  return "\n      <li\n        class=\"movies__card fadeInUp\"\n        style=\"background-image: url(".concat(movie.Poster, ")\"\n      >\n        <div>\n          <div>\n            <span>").concat(movie.Year, "</span>\n            <h2>\n              <a href=\"/\">").concat(movie.Title, "</a>\n            </h2>\n            <p>\n              <button data-movieid=\"").concat(movie.imdbID, "\" class=\"button watch-later-button ").concat(button, "\">").concat(name, "</button>\n            </p>\n          </div>\n      </li>\n  ");
+var movieGenerator = function movieGenerator(movie, buttonName) {
+  var buttonClass = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+  // Elements
+  var li = document.createElement('li');
+  var div = document.createElement('div');
+  var span = document.createElement('span');
+  var h2 = document.createElement('h2');
+  var a = document.createElement('a');
+  var p = document.createElement('p');
+  var button = document.createElement('button'); // Append elements
+
+  li.appendChild(div);
+  div.appendChild(span);
+  div.appendChild(h2);
+  div.appendChild(p);
+  h2.appendChild(a);
+  p.appendChild(button); // Attributes
+
+  a.href = '/';
+  button.setAttribute('data-movieid', movie.imdbID); // textContent
+
+  span.textContent = movie.Year;
+  a.textContent = movie.Title;
+  button.textContent = buttonName; // ClassLists
+
+  li.classList.add('movies__card', 'fadeInUp');
+
+  if (buttonClass) {
+    button.classList.add('button', 'watch-later-button', "".concat(buttonClass));
+  } else {
+    button.classList.add('button', 'watch-later-button');
+  } // Styles
+
+
+  li.style.backgroundImage = "url(".concat(movie.Poster, ")");
+  return li;
 };
 
-exports.generateMovie = generateMovie;
+exports.movieGenerator = movieGenerator;
 
 var showWatchLaterMovies = function showWatchLaterMovies() {
   if (_app.state.watchLaterMovies.length > 0) {
@@ -1165,7 +1198,7 @@ var showWatchLaterMovies = function showWatchLaterMovies() {
     watchingMovies.innerHTML = '';
 
     _app.state.watchLaterMovies.forEach(function (movie) {
-      watchingMovies.innerHTML += generateMovie(movie, 'Remove', 'remove-button');
+      watchingMovies.appendChild(movieGenerator(movie, 'Remove', 'remove-button'));
       themes.style.display = 'none';
     });
 
@@ -1200,7 +1233,7 @@ var showPopularMovies = function showPopularMovies() {
 
   if (_app.state.popularMovies) {
     _app.state.popularMovies.forEach(function (movie) {
-      popularMovies.innerHTML += generateMovie(movie, 'Watch Later', 'popular-movies');
+      popularMovies.appendChild(movieGenerator(movie, 'Watch Later', 'popular-movies'));
     });
   }
 
@@ -1260,7 +1293,7 @@ var getMovies = function getMovies(value) {
             setTimeout(function () {
               if (_app.state.movies) {
                 _app.state.movies.forEach(function (movie) {
-                  list.innerHTML += generateMovie(movie, 'Watch Later');
+                  list.appendChild(movieGenerator(movie, 'Watch Later'));
                   themes.style.display = 'none';
                 });
               }
@@ -1773,7 +1806,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54553" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37165" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
