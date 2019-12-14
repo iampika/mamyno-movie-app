@@ -1178,6 +1178,7 @@ var movieGenerator = function movieGenerator(movie, buttonName) {
   button.textContent = buttonName; // ClassLists
 
   li.classList.add('movies__card', 'fadeInUp');
+  div.classList.add('ml-8');
 
   if (buttonClass) {
     button.classList.add('button', 'watch-later-button', "".concat(buttonClass));
@@ -1207,15 +1208,11 @@ var showWatchLaterMovies = function showWatchLaterMovies() {
       button.addEventListener('click', function () {
         _app.state.watchLaterMovies.forEach(function (movie) {
           if (movie.imdbID === button.dataset.movieid) {
-            error.classList.add('none');
-            success.classList.add('none');
             _app.state.watchLaterMovies = _app.state.watchLaterMovies.filter(function (m) {
               return m.imdbID !== button.dataset.movieid;
             });
             localStorage.setItem('state', JSON.stringify(_app.state));
             showWatchLaterMovies();
-            success.classList.remove('none');
-            success.innerHTML = "\n              <p>Successfully removed</p>\n            ";
           }
         });
       });
@@ -1253,13 +1250,8 @@ var showPopularMovies = function showPopularMovies() {
 
             showWatchLaterMovies();
             localStorage.setItem('state', JSON.stringify(_app.state));
-            success.classList.remove('none');
-            success.innerHTML = "\n              <p>Successfully added</p>\n            ";
           }
         });
-      } else {
-        error.classList.remove('none');
-        error.innerHTML = "\n          <p>Already Added</p>\n        ";
       }
     });
   });

@@ -40,6 +40,7 @@ export const movieGenerator = (movie, buttonName, buttonClass = '') => {
 
   // ClassLists
   li.classList.add('movies__card', 'fadeInUp');
+  div.classList.add('ml-8');
   if (buttonClass) {
     button.classList.add('button', 'watch-later-button', `${buttonClass}`);
   } else {
@@ -70,17 +71,11 @@ export const showWatchLaterMovies = () => {
       button.addEventListener('click', () => {
         state.watchLaterMovies.forEach((movie) => {
           if (movie.imdbID === button.dataset.movieid) {
-            error.classList.add('none');
-            success.classList.add('none');
             state.watchLaterMovies = state.watchLaterMovies.filter(
               (m) => m.imdbID !== button.dataset.movieid,
             );
             localStorage.setItem('state', JSON.stringify(state));
             showWatchLaterMovies();
-            success.classList.remove('none');
-            success.innerHTML = `
-              <p>Successfully removed</p>
-            `;
           }
         });
       });
@@ -120,17 +115,8 @@ export const showPopularMovies = () => {
             state.watchLaterMovies.push(movie);
             showWatchLaterMovies();
             localStorage.setItem('state', JSON.stringify(state));
-            success.classList.remove('none');
-            success.innerHTML = `
-              <p>Successfully added</p>
-            `;
           }
         });
-      } else {
-        error.classList.remove('none');
-        error.innerHTML = `
-          <p>Already Added</p>
-        `;
       }
     });
   });
