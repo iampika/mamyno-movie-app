@@ -1308,11 +1308,17 @@ var getMovies = function getMovies(value) {
                         localStorage.setItem('state', JSON.stringify(_app.state));
                         success.classList.remove('none');
                         success.innerHTML = "\n                  <p>Successfully added</p>\n                ";
+                        setTimeout(function () {
+                          success.classList.add('none');
+                        }, 2000);
                       }
                     });
                   } else {
                     error.classList.remove('none');
-                    error.innerHTML = "\n              <p>Already Added.</p>\n            ";
+                    error.innerHTML = "\n            <p>Already Added.</p>\n            ";
+                    setTimeout(function () {
+                      error.classList.add('none');
+                    }, 2000);
                   }
                 });
               });
@@ -1798,7 +1804,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37165" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41513" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
