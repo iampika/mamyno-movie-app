@@ -4,7 +4,8 @@
   "description": "An application where users can search for movies and add to their watch list. After watch the movie they can remove the movie from their watch list.",
   "main": "index.html",
   "scripts": {
-    "start": "parcel ./src/index.html -d docs --open"
+    "start": "parcel ./src/index.html -d docs --open",
+    "build": "parcel build ./src/index.html"
   },
   "repository": {
     "type": "git",
