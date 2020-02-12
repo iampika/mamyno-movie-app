@@ -1,6 +1,5 @@
 import { state } from '../app';
 import { fetchMovies } from './api';
-import popularMoviesData from './popularMovies';
 
 const error = document.querySelector('.error');
 const success = document.querySelector('.success');
@@ -8,7 +7,6 @@ const list = document.querySelector('#movies');
 const noMovies = document.querySelector('.no-movies');
 const watchingMovies = document.querySelector('.watching-movies');
 const themes = document.querySelector('.themes');
-const popularMovies = document.querySelector('#popular-movies');
 
 export const movieGenerator = (movie, buttonName, buttonClass = '') => {
   // Elements
@@ -84,42 +82,6 @@ export const showWatchLaterMovies = () => {
     noMovies.classList.remove('none');
     watchingMovies.innerHTML = '';
   }
-};
-
-export const showPopularMovies = () => {
-  state.popularMovies = popularMoviesData;
-
-  if (state.popularMovies) {
-    state.popularMovies.forEach((movie) => {
-      popularMovies.appendChild(
-        movieGenerator(movie, 'Watch Later', 'popular-movies'),
-      );
-    });
-  }
-
-  const buttons = document.querySelectorAll('.popular-movies');
-
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      error.classList.add('none');
-      success.classList.add('none');
-      const isMovieExit = !(
-        state.watchLaterMovies.filter(
-          (movie) => movie.imdbID === button.dataset.movieid,
-        ).length > 0
-      );
-
-      if (isMovieExit) {
-        state.popularMovies.forEach((movie) => {
-          if (movie.imdbID === button.dataset.movieid) {
-            state.watchLaterMovies.push(movie);
-            showWatchLaterMovies();
-            localStorage.setItem('state', JSON.stringify(state));
-          }
-        });
-      }
-    });
-  });
 };
 
 export const getMovies = async (value) => {

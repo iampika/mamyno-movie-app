@@ -1,5 +1,5 @@
 import { fadeInUpAnimation, rubberBandAnimation } from './animation';
-import { showPopularMovies, showWatchLaterMovies } from './helpers';
+import { showWatchLaterMovies } from './helpers';
 
 const page1 = document.querySelector('.page-1');
 const page2 = document.querySelectorAll('.page-2');
@@ -20,7 +20,6 @@ export const showPage1 = () => {
 
 export const showPage2 = () => {
   showWatchLaterMovies();
-  showPopularMovies();
   page1.style.display = 'none';
   page2.forEach((page) => {
     page.style.display = '';
