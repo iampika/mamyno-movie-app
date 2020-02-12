@@ -19,3 +19,4 @@ module.exports = {
     'no-param-reassign': 0,
   },
 };
+
