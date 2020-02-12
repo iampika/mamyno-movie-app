@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/jakepintu/mamyno-movie-app#readme",
   "dependencies": {
-    "@babel/core": "^7.7.4"
+    "@babel/core": "^7.7.4",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.7.4",

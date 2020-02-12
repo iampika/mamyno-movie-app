@@ -1,4 +1,4 @@
-import { getMovies } from './js/api';
+import { getMovies } from './js/helpers';
 import { showPage1, showPage2 } from './js/pages';
 import {
   changeThemeFive,

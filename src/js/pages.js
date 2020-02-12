@@ -1,5 +1,5 @@
 import { fadeInUpAnimation, rubberBandAnimation } from './animation';
-import { showPopularMovies, showWatchLaterMovies } from './api';
+import { showPopularMovies, showWatchLaterMovies } from './helpers';
 
 const page1 = document.querySelector('.page-1');
 const page2 = document.querySelectorAll('.page-2');
